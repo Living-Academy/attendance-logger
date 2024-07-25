@@ -12,13 +12,13 @@ import {
 } from 'reactfire'
 
 const firebaseConfig = {
-	apiKey: "AIzaSyD8Ln65IM_x6AMtpyX9ZXgI_CM5488iOn4",
-	authDomain: "desi-mela.firebaseapp.com",
-	projectId: "desi-mela",
-	storageBucket: "desi-mela.appspot.com",
-	messagingSenderId: "528351165069",
-	appId: "1:528351165069:web:0d8f9ccc4e8ecf12b5c0c4",
-	measurementId: "G-EC1QR7ZXRT"
+	apiKey: 'AIzaSyC7F6j5l_ekZO18OABHJitNrrHt2aGzGMk',
+	authDomain: 'la-attendance-logger.firebaseapp.com',
+	projectId: 'la-attendance-logger',
+	storageBucket: 'la-attendance-logger.appspot.com',
+	messagingSenderId: '967786349861',
+	appId: '1:967786349861:web:7d19023db61f3eee3446cc',
+	measurementId: 'G-NWTEHMN8Q5',
 }
 
 export function FirebaseComponents({
