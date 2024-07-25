@@ -12,8 +12,15 @@
 /.next/
 /out/
 
+# firebase
+/.firebase/
+
+# vscode
+/.vscode/
+
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -33,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# android
+signing.keystore
