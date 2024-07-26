@@ -28,7 +28,7 @@ export function FirebaseComponents({
 }) {
 	const app = useFirebaseApp()
 	const auth = getAuth(app)
-	const db = getFirestore(app, 'development')
+	const db = getFirestore(app)
 
 	if (typeof window !== 'undefined') {
 		getAnalytics(app)

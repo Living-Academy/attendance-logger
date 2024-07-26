@@ -6,6 +6,7 @@ import clsx from 'clsx'
 import { FirebaseContextProvider } from '@/config/firebase'
 import { NavContextProvider } from '@/hooks/nav-context'
 import { Providers } from '@/app/providers'
+import { ActionBar } from '@/components/action-bar'
 // import { ActionBar } from '@/components/action-bar'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -52,7 +53,7 @@ export default function RootLayout({
 					>
 						<NavContextProvider>
 							<main className="flex h-[100svh] w-[100svw] flex-col overflow-hidden">
-								{/* <ActionBar /> */}
+								<ActionBar />
 								<div className="flex h-full w-full flex-col items-center justify-between overflow-hidden">
 									{children}
 								</div>
