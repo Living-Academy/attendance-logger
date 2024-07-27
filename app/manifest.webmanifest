@@ -1,0 +1,35 @@
+{
+    "id": "/",
+    "background_color": "#FFFFFF",
+    "description": "Webapp to log attendance at LA",
+    "dir": "ltr",
+    "display": "standalone",
+    "name": "LA Attendance Logger",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "short_name": "LA Logger",
+    "start_url": "/",
+    "theme_color": "#000000",
+    "categories": [
+        "news"
+    ],
+    "lang": "en",
+    "display_override": [
+        "standalone",
+        "fullscreen",
+        "window-controls-overlay",
+        "minimal-ui",
+        "browser"
+    ],
+    "handle_links": "preferred",
+    "launch_handler": {
+        "client_mode": [
+            "navigate-existing",
+            "auto"
+        ]
+    },
+    "edge_side_panel": {
+        "preferred_width": 376
+    },
+    "gcm_sender_id": "967786349861"
+}
