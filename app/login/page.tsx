@@ -306,7 +306,11 @@ export default function Page() {
 				variant="flat"
 				onPress={selectedTab === 'signin' ? handleSignIn : handleSignUp}
 			>
-				{error ? `${error.code}` : isLoading ? 'Loading...' : 'Submit'}
+				{error
+					? `${error.code}`
+					: isLoading
+						? 'Loading...'
+						: 'Continue'}
 			</Button>
 		</div>
 	)
