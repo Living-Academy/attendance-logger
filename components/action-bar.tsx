@@ -2,14 +2,7 @@
 
 import { BsSunFill, BsMoonStarsFill } from 'react-icons/bs'
 import { useTheme } from 'next-themes'
-import { User } from '@firebase/auth'
-import { doc } from '@firebase/firestore'
-import {
-	useAuth,
-	useFirestore,
-	useFirestoreDocDataOnce,
-	useSigninCheck,
-} from 'reactfire'
+import { useAuth, useSigninCheck } from 'reactfire'
 import {
 	Navbar,
 	Button,
@@ -29,23 +22,15 @@ import { useRouter, usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 function UserModal({
-	user,
 	isOpen,
 	onOpenChange,
 }: {
-	user: User
 	isOpen: boolean
 	onOpenChange: (isOpen: boolean) => void
 }) {
 	const router = useRouter()
 	const auth = useAuth()
-	const db = useFirestore()
-	const userRef = doc(db, 'users', user.uid)
 	const { theme, setTheme } = useTheme()
-	const { status: userDataStatus, data: userData } =
-		useFirestoreDocDataOnce(userRef)
-
-	if (userDataStatus !== 'success') return <></>
 
 	return (
 		<Modal
@@ -59,7 +44,9 @@ function UserModal({
 			<ModalContent>
 				{() => (
 					<>
-						<ModalHeader>{userData.displayName}</ModalHeader>
+						<ModalHeader>
+							{auth.currentUser?.displayName}
+						</ModalHeader>
 						<ModalBody>
 							<div className="flex items-center justify-between">
 								<p className="text-lg font-medium text-foreground-700">
@@ -169,11 +156,7 @@ export function ActionBar() {
 				/>
 			</div>
 			{signedIn && user && (
-				<UserModal
-					isOpen={isOpen}
-					user={user}
-					onOpenChange={onOpenChange}
-				/>
+				<UserModal isOpen={isOpen} onOpenChange={onOpenChange} />
 			)}
 		</Navbar>
 	)

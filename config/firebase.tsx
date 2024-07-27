@@ -1,13 +1,15 @@
 'use client'
 
-import { getAuth } from 'firebase/auth'
-import { getAnalytics } from 'firebase/analytics'
-import { getPerformance } from 'firebase/performance'
-import { getFirestore } from 'firebase/firestore'
+import { getAuth } from '@firebase/auth'
+import { getAnalytics } from '@firebase/analytics'
+import { getPerformance } from '@firebase/performance'
+import { getFirestore } from '@firebase/firestore'
+import { getStorage } from '@firebase/storage'
 import {
 	FirebaseAppProvider,
 	AuthProvider,
 	FirestoreProvider,
+	StorageProvider,
 	useFirebaseApp,
 } from 'reactfire'
 
@@ -29,6 +31,7 @@ export function FirebaseComponents({
 	const app = useFirebaseApp()
 	const auth = getAuth(app)
 	const db = getFirestore(app)
+	const storage = getStorage(app)
 
 	if (typeof window !== 'undefined') {
 		getAnalytics(app)
@@ -37,7 +40,9 @@ export function FirebaseComponents({
 
 	return (
 		<AuthProvider sdk={auth}>
-			<FirestoreProvider sdk={db}>{children}</FirestoreProvider>
+			<FirestoreProvider sdk={db}>
+				<StorageProvider sdk={storage}>{children}</StorageProvider>
+			</FirestoreProvider>
 		</AuthProvider>
 	)
 }
