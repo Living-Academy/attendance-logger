@@ -13,6 +13,14 @@
     "categories": [
         "news"
     ],
+    "icons": [
+        {
+            "src": "./logos/any.png",
+            "type": "image/png",
+            "sizes": "256x256",
+            "purpose": "any"
+        }
+    ],
     "lang": "en",
     "display_override": [
         "standalone",
