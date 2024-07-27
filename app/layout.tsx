@@ -14,10 +14,10 @@ const inter = Inter({ subsets: ['latin'] })
 export const dynamic = 'force-static'
 
 export const metadata: Metadata = {
-	metadataBase: new URL('https://chalodaudne.in'),
-	title: 'Chalo Daudne Marathon',
+	metadataBase: new URL('https://la-attendance-logger.web.app'),
+	title: 'LA Attendance Logger',
 	description: 'Inspirit Vision Marathon',
-	alternates: { canonical: 'https://chalodaudne.in' },
+	alternates: { canonical: 'https://la-attendance-logger.web.app' },
 	appleWebApp: true,
 	formatDetection: { telephone: false },
 	other: { ['darkreader-lock' as string]: [true as any] },
