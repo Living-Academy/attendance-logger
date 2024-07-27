@@ -25,6 +25,8 @@ import {
 	TableCell,
 	User,
 	Input,
+	Spacer,
+	Chip,
 } from '@nextui-org/react'
 import { BsDoorClosed, BsDoorOpen, BsSearch } from 'react-icons/bs'
 import { useState } from 'react'
@@ -50,17 +52,30 @@ function LogTable({
 
 	return (
 		<div className="flex w-full flex-col gap-4">
-			<Input
-				isClearable
-				className="w-full"
-				labelPlacement="outside"
-				placeholder="Search"
-				startContent={<BsSearch />}
-				type="text"
-				value={search}
-				variant="faded"
-				onValueChange={setSearch}
-			/>
+			<div className="flex items-center gap-2">
+				<Input
+					isClearable
+					className="w-full"
+					labelPlacement="outside"
+					placeholder="Search"
+					startContent={<BsSearch />}
+					type="text"
+					value={search}
+					variant="faded"
+					onValueChange={setSearch}
+				/>
+				<Chip
+					className="h-full"
+					color="primary"
+					radius="md"
+					variant="dot"
+				>
+					{new Date().toLocaleDateString('en-GB', {
+						day: 'numeric',
+						month: 'short',
+					})}
+				</Chip>
+			</div>
 			<Table aria-label="Articles table">
 				<TableHeader>
 					<TableColumn align="start">USER</TableColumn>
@@ -140,12 +155,13 @@ function App({ user }: { user: UserType }) {
 	}
 
 	return (
-		<div className="flex h-full w-full max-w-2xl flex-col items-center justify-between gap-4 p-4">
+		<div className="flex h-full w-full max-w-2xl flex-col items-center gap-4 p-4">
 			{logData ? (
 				<LogTable logData={logData} usersData={usersData} />
 			) : (
 				<ErrMsg text="No entries today 😴" />
 			)}
+			<Spacer className="flex-grow" />
 			<div className="flex w-full items-center gap-2">
 				<Button
 					fullWidth
